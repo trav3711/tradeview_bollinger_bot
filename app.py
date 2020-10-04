@@ -3,9 +3,6 @@ import alpaca_trade_api as tradeapi
 from config import *
 import requests, json
 
-BASE_URL = "https://paper-api.alpaca.markets"
-DISCORD_URL = "https://discordapp.com/api/webhooks/762391658481844245/SCs3W-iWkIT89EdlvCfLae8UFKqZuPQxsm3AjnqFs5aEzLMj-0c9T1owqzn4FRMB8TB_"
-
 app = Flask(__name__)
 
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url=BASE_URL)
@@ -31,5 +28,11 @@ def webhook():
     side = webhook_message['strategy']['order_action']
 
     order = api.submit_order(symbol, quantity, side, 'limit', 'gtc', limit_price=price)
+
+    chat_message = {
+        "content":f"tradingview strategy alert triggered: {quantity} {symbol} @ {price}"
+    }
+
+    requests.post(DISCORD_URL, json=chat_message)
 
     return webhook_message
