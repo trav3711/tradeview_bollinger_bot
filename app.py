@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import alpaca_trade_api as tradeapi
 from config import *
-import requests
+import requests, json
 
 BASE_URL = "https://paper-api.alpaca.markets"
 
@@ -19,6 +19,9 @@ def dashboard():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     webhook_message = json.loads(request.data)
+
+    if webhook_message['passphrase'] != WEBHOOK_PASSPHRASE:
+        return "no"
 
     price = webhook_message['strategy']['order_price']
     quantity = webhook_message['strategy']['order_contracts']
