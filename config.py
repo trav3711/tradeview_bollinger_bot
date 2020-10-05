@@ -1,7 +1,0 @@
-API_KEY = "PKVZKVTD8GRUSDFBA55X"
-SECRET_KEY = "QfJzH2IyKinMta4qZ1VktI9sPKC4UO2HHQb8HIAE"
-
-WEBHOOK_PASSPHRASE = "gGg7dFjpEQvsV6B9969RLQCmmvkcwJWCsenyy6EZcCGJ5RDD"
-
-BASE_URL = "https://paper-api.alpaca.markets"
-DISCORD_URL = "https://discordapp.com/api/webhooks/762391658481844245/SCs3W-iWkIT89EdlvCfLae8UFKqZuPQxsm3AjnqFs5aEzLMj-0c9T1owqzn4FRMB8TB_"
