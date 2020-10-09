@@ -26,7 +26,7 @@ def webhook():
     symbol = webhook_message['ticker']
     side = webhook_message['strategy']['order_action']
 
-    order = api.submit_order(symbol, quantity, side, 'limit', 'gtc', limit_price=price)
+    order = api.submit_order(symbol, quantity, side, 'market', 'gtc', limit_price=price)
 
     chat_message = {
         "content":f"tradingview strategy alert triggered: {quantity} {symbol} @ {price}"
