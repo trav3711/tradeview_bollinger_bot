@@ -11,7 +11,6 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, base_url=BASE_URL)
 def dashboard():
     orders = api.list_orders(status='all', limit=50)
     positions = api.list_positions()
-    #print(orders)
 
     return render_template('dashboard.html', alpaca_orders=orders, alpaca_positions=positions)
 
